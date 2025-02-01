@@ -1,0 +1,16 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  @font-face {
+    font-family: 'Neo Sans Arabic';
+    src: url('./app//assets/fonts/alfont_com_NeoSansArabic.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+  }
+}
+
+* {
+  font-family: 'Neo Sans Arabic', sans-serif;
+}

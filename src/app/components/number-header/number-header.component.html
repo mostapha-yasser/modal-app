@@ -1,0 +1,57 @@
+<div class="mb-[10px] bg-white rounded-md py-3 sm:p-3 md:h-[188px]  border border-solid border-headerBorderColor">
+    <div class="flex justify-between w-full px-2 h-8  mb-7">
+
+        <div class="flex items-center">
+            <p class="font-semibold text-md sm:text-xl  ">0102345678910</p>
+            <button class=" text-xs rounded-md mx-1 bg-bgGreenColorButton  text-white p-1 sm:px-4 sm:py-[6px] ">
+                قيد الاستخدام
+            </button>
+        </div>
+        <div class="relative">
+            <span class="font-black text-dotsColor hover:text-dotsHover cursor-pointer text-2xl"
+                (click)="toggleList()">...</span>
+                <div [ngClass]="isListOpen ? 'absolute' : 'hidden'"
+                class="top-8 left-0 z-10 bg-white w-[132px] h-[80px] rounded-md border border-borderList flex items-center justify-center">
+               <div class="w-full h-full flex flex-col gap-1 py-1">
+                   <div class="h-[33px] flex items-center justify-center gap-2 cursor-pointer hover:scale-110 px-[10px] py-[6px]">
+                       <img src="pen.svg" alt="loading" class="h-[15.95px] w-[15.95px]">
+                       <p class="text-center text-nowrap text-[14px] leading-[21px] text-textList">تعديل الرقم</p>
+                   </div>
+                   <div class="h-[33px] flex items-center justify-center gap-2 px-[10px] py-[6px] hover:scale-110 cursor-pointer">
+                       <img src="Cancel-set.svg" alt="loading" class="h-[21px] w-[21px]">
+                       <p class="text-center text-nowrap text-[14px] leading-[21px] text-xBgColorHover">إلغاء التعيين</p>
+                   </div>
+               </div>
+           </div>
+           
+        </div>
+
+    </div>
+    <div class="flex flex-wrap justify-evenly w-full min-h-fit md:h-[108px]   ">
+        @for( item of items; track item.id ){
+        <div class="flex justify-between items-center   my-1 w-[47%] sm:w-2/4  md:w-1/4 border-2 md:border-0 ">
+            <div class="  md:px-3 text-[10px] sm:text-sm  w-full  flex flex-col justify-center items-center h-[46px] ">
+                <p class=" text-nowrap text-dotsColor ">{{item.header}}</p>
+
+                <div class="flex gap-1 items-center">
+                    @if (item.icon) {
+                    <img [src]="item.icon" alt="loading"
+                        class="h-[21px] w-[21px] rounded-full border-black border-opacity-10 "
+                        [ngClass]="item.id===2?'scale-105':'scale-100'">
+
+                    }
+                    <p class="max-w-[145px] text-nowrap text-textList truncate cursor-pointer" [title]="item.detail">
+                        {{item.detail}} </p>
+
+                </div>
+            </div>
+            <p [ngClass]="($index+1) % 4 !==0 ?'md:inline-block ':'hidden'"
+                class="hidden text-2xl leading-none text-gray-400">|</p>
+
+        </div>
+        }
+
+
+
+    </div>
+</div>
